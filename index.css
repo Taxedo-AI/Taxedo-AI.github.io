@@ -22,6 +22,17 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+.top{
+  background: url(home.png);
+  background-size: cover;
+  height: 100vh;
+  color: white;
+  text-align: center;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
+}
+
 /* Main pill container */
 .pill-nav ul {
   list-style: none;
