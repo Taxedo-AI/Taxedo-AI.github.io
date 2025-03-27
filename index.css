@@ -1,0 +1,51 @@
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Inter font class */
+.inter-default {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Inter", sans-serif;
+}
+
+/* Main pill container */
+.pill-nav ul {
+  list-style: none;
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 9999px;
+  padding: 0.75rem;
+}
+
+/* Each list item link */
+.pill-nav li a {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 2px solid transparent;
+}
+
+/* Hover effect */
+.pill-nav li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
