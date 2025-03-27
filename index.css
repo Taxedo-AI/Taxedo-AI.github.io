@@ -17,7 +17,7 @@ html, body {
 }
 
 .top {
-  background: url(bg.png);
+  background: url(background.png);
   background-size: cover;
   height: 100vh;
   color: white;
