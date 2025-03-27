@@ -27,7 +27,7 @@ body {
   background-size: cover;
   height: 100vh;
   color: white;
-  text-align: center;
+  margin: 0;
   scroll-snap-align: start;
   scroll-snap-stop: always;
 
