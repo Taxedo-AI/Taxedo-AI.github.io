@@ -14,10 +14,9 @@ html, body {
   padding: 0;
   margin: 0;
   font-family: "Inter", sans-serif;
-
 }
 
-.top{
+.top {
   background: url(bg.png);
   background-size: cover;
   height: 100vh;
@@ -25,7 +24,22 @@ html, body {
   margin: 0;
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
 
+h1 {
+  font-size: 550%;
+  line-height: 0px;
+}
+
+h3 {
+  color: #ffe6ea;
+  font-size: 150%;
+}
+
+/* Center the pill navigation container */
+.pill-nav {
+  width: 100%;
+  text-align: center;
 }
 
 /* Main pill container */
@@ -37,6 +51,7 @@ html, body {
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
   padding: 0.75rem;
+  margin: 0 auto;
 }
 
 /* Each list item link */
