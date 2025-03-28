@@ -2,8 +2,18 @@
 .inter-default {
   font-family: "Inter", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 100;
   font-style: normal;
+}
+
+.dm-sans-txt {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+p {
+  font-weight: 120;
+  font-size: 130%;
 }
 
 html, body {
@@ -13,11 +23,11 @@ html, body {
   scroll-snap-type: y mandatory;
   padding: 0;
   margin: 0;
-  font-family: "Inter", sans-serif;
+  font-family: "DM Sans", sans-serif;
 }
 
 .top {
-  background: url(background.png);
+  background: url(black-background.png);
   background-size: cover;
   height: 100vh;
   color: white;
@@ -36,11 +46,9 @@ h3 {
   font-size: 150%;
 }
 
-/* Center the pill navigation container */
 .pill-nav {
   width: 100%;
   text-align: center;
-  margin-top: 2rem;
 }
 
 /* Main pill container */
@@ -51,8 +59,9 @@ h3 {
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 9999px;
-  padding: 0.75rem;
-  margin: 0 auto;
+  padding: 0.55rem;
+  margin: 3rem auto 0;
+  backdrop-filter: blur(10px);
 }
 
 /* Each list item link */
@@ -64,10 +73,74 @@ h3 {
   border-radius: 9999px;
   transition: background-color 0.3s ease, color 0.3s ease;
   border: 2px solid transparent;
+  font-weight: 200;
 }
 
 /* Hover effect */
 .pill-nav li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
   color: #fff;
+}
+
+.hero-left {
+  /* Floats the element to the left if you have an image/card on the right */
+  float: left;
+  
+  /* 50% width plus a max-width ensures it doesn’t stretch too far on larger screens */
+  width: 50%;
+  max-width: 600px; /* adjust as needed */
+
+  /* Shifts the block downward/upward. Lower this value to move it up. */
+  margin-top: 10%;  /* try 5% or 0 if you want it higher */
+
+  /* Adds left padding for spacing from the edge */
+  padding-left: 10%;
+}
+
+.hero-right {
+  float: right;
+  width: 50%;
+  max-width: 600px;
+  margin-top: 10%;
+  padding-right: 10%;
+  box-sizing: border-box;
+}
+
+.hero-right img {
+  max-width: 100%;
+  height: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  margin-top: 1rem;           /* Spacing above the button */
+  padding: 0.75rem 1.5rem;      /* Vertical and horizontal padding */
+  border-radius: 9999px;        /* Pill shape */
+  text-decoration: none;        /* Remove underline */
+  font-weight: 600;             /* Slightly bolder text */
+  font-size: 1rem;              /* Adjust as needed */
+  transition: background 0.3s ease, color 0.3s ease;
+  border: 1px solid white;
+  color: #fff;
+}
+
+/* Hover effect for CTA button */
+.cta-button:hover {
+  background: white;
+  color: black;
+}
+
+/* Clearfix for .top to contain floated elements */
+.top::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.animated-border {
+  position: relative;
+  width: 300px;               /* Set your desired width */
+  /* Optional: If you want a specific aspect ratio, uncomment the next line:
+     aspect-ratio: 16 / 9; */
+  margin: 2rem auto;          /* Center it on the page (optional) */
 }
