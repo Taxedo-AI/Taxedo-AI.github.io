@@ -1,49 +1,66 @@
-/* Inter font class */
-.inter-default {
-  font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+/* CSS Variables */
+:root {
+  --bg-primary: #0D0C0C;
+  --bg-secondary: #1D1C1C;
+  --text-primary: #FFFFFF;
+  --text-secondary: #B0AFAF;
+  --accent-gold: #F0B648;
+  --accent-gold-light: #eee5a7;
+  --button-gray: #3D3D3D;
 }
 
-.dm-sans-txt {
-  font-family: "DM Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-p {
-  font-weight: 120;
-  font-size: 130%;
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html, body {
   height: 100%;
   width: 100%;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
+  overflow-y: auto;
   padding: 0;
   margin: 0;
   font-family: "DM Sans", sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
 }
 
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'DM Sans', sans-serif;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--accent-gold-light);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 768px) {
+  p {
+    font-size: 1.125rem;
+  }
+}
+
+/* Original Hero Section Styles */
 .top {
   background: url(black-background.png);
   background-size: cover;
   height: 100vh;
-  color: white;
+  color: var(--text-primary);
   margin: 0;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-h1 {
-  font-size: 550%;
-  line-height: 0px;
-}
-
-h3 {
-  color: #ffe6ea;
-  font-size: 150%;
+  position: relative;
 }
 
 .pill-nav {
@@ -51,7 +68,6 @@ h3 {
   text-align: center;
 }
 
-/* Main pill container */
 .pill-nav ul {
   list-style: none;
   display: inline-flex;
@@ -64,36 +80,25 @@ h3 {
   backdrop-filter: blur(10px);
 }
 
-/* Each list item link */
 .pill-nav li a {
   display: inline-block;
   padding: 0.5rem 1.25rem;
-  color: #fff;
+  color: var(--text-primary);
   text-decoration: none;
   border-radius: 9999px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  border: 2px solid transparent;
+  transition: all 0.3s ease;
   font-weight: 200;
 }
 
-/* Hover effect */
 .pill-nav li a:hover {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
 }
 
 .hero-left {
-  /* Floats the element to the left if you have an image/card on the right */
   float: left;
-  
-  /* 50% width plus a max-width ensures it doesn’t stretch too far on larger screens */
   width: 50%;
-  max-width: 600px; /* adjust as needed */
-
-  /* Shifts the block downward/upward. Lower this value to move it up. */
-  margin-top: 10%;  /* try 5% or 0 if you want it higher */
-
-  /* Adds left padding for spacing from the edge */
+  max-width: 600px;
+  margin-top: 10%;
   padding-left: 10%;
 }
 
@@ -113,34 +118,502 @@ h3 {
 
 .cta-button {
   display: inline-block;
-  margin-top: 1rem;           /* Spacing above the button */
-  padding: 0.75rem 1.5rem;      /* Vertical and horizontal padding */
-  border-radius: 9999px;        /* Pill shape */
-  text-decoration: none;        /* Remove underline */
-  font-weight: 600;             /* Slightly bolder text */
-  font-size: 1rem;              /* Adjust as needed */
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
   transition: background 0.3s ease, color 0.3s ease;
   border: 1px solid white;
   color: #fff;
 }
 
-/* Hover effect for CTA button */
 .cta-button:hover {
   background: white;
   color: black;
 }
 
-/* Clearfix for .top to contain floated elements */
 .top::after {
   content: "";
   display: table;
   clear: both;
 }
 
-.animated-border {
+h1 {
+  font-size: 550%;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+}
+
+h3 {
+  color: var(--text-primary);
+  font-size: 150%;
+}
+
+.hero-left p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--accent-gold-light);
+  margin-bottom: 2rem;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Section Styles */
+section {
+  padding: 6rem 0;
   position: relative;
-  width: 300px;               /* Set your desired width */
-  /* Optional: If you want a specific aspect ratio, uncomment the next line:
-     aspect-ratio: 16 / 9; */
-  margin: 2rem auto;          /* Center it on the page (optional) */
+}
+
+/* Section Dividers */
+section:not(.top):not(:last-child)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  max-width: 1200px;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--accent-gold-light),
+    transparent
+  );
+}
+
+/* Alternating Section Backgrounds */
+section:nth-child(odd):not(.top) {
+  background-color: var(--bg-secondary);
+}
+
+section:nth-child(even):not(.top) {
+  background-color: var(--bg-primary);
+}
+
+/* Add subtle diagonal lines in the background */
+section:not(.top)::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient(
+    45deg,
+    var(--bg-secondary) 25%,
+    transparent 25%,
+    transparent 75%,
+    var(--bg-secondary) 75%
+  );
+  background-size: 60px 60px;
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Enhance section titles with subtle glow */
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--accent-gold-light);
+  margin: 1rem auto 0;
+  box-shadow: 0 0 10px var(--accent-gold-light);
+}
+
+/* Card Styles */
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: transform 0.3s, background-color 0.3s;
+  border: 1px solid var(--button-gray);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  background-color: var(--button-gray);
+}
+
+/* Grid Layouts */
+.problem-solution {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.overview-grid,
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.traction-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Testimonial Styles */
+.testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+  background-color: var(--accent-gold-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: var(--bg-primary);
+}
+
+cite {
+  color: var(--accent-gold-light);
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* FAQ Styles */
+.faq-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.faq-item h4 {
+  color: var(--accent-gold-light);
+  padding-right: 2rem; /* Make space for the plus sign */
+}
+
+.faq-item::after {
+  content: '+';
+  position: absolute;
+  right: 1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-gold-light);
+  font-size: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.faq-item p {
+  display: none;
+  margin-top: 1rem;
+}
+
+.faq-item.active p {
+  display: block;
+}
+
+/* Download Section */
+.download {
+  text-align: center;
+  background-color: var(--bg-secondary);
+}
+
+.download-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.app-store-button,
+.play-store-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--accent-gold-light);
+  color: var(--bg-primary);
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  transition: transform 0.3s;
+}
+
+.app-store-button:hover,
+.play-store-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-left,
+  .hero-right {
+    float: none;
+    width: 100%;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .hero-left p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .problem-solution,
+  .traction-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Dark Mode Toggle (preserved for future implementation) */
+.theme-toggle {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+.theme-toggle:hover {
+  background-color: var(--button-gray);
+}
+
+/* Sign Up Section */
+.signup {
+  text-align: center;
+  background-color: var(--bg-secondary);
+}
+
+.signup-form {
+  max-width: 500px;
+  margin: 2rem auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.signup-form input,
+.signup-form select {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--button-gray);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+.signup-form input:focus,
+.signup-form select:focus {
+  outline: none;
+  border-color: var(--accent-gold-light);
+}
+
+.signup-form input::placeholder {
+  color: var(--text-secondary);
+}
+
+.signup-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--accent-gold-light);
+  color: var(--bg-primary);
+  text-decoration: none;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s;
+  margin-top: 1rem;
+}
+
+.signup-button:hover {
+  transform: translateY(-2px);
+}
+
+/* Why It Matters section */
+.why-matters {
+  background: var(--bg-primary);
+  padding: 6rem 0;
+}
+
+.problem-solution {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4rem;
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.problem, .solution {
+  position: relative;
+  padding: 2.5rem;
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  border: 1px solid rgba(238, 229, 167, 0.8);
+  box-shadow: 0 0 20px rgba(238, 229, 167, 0.1);
+}
+
+.problem h3,
+.solution h3 {
+  color: var(--accent-gold);
+  margin-bottom: 2rem;
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+.problem .content,
+.solution .content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.problem .intro,
+.solution .intro {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.problem .points,
+.solution .points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.problem .points p,
+.solution .points p {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.mark {
+  color: var(--accent-gold-light);
+  font-size: 1.5rem;
+  line-height: 1;
+  min-width: 24px;
+  display: inline-block;
+  text-align: center;
+  margin-top: 2px;
+}
+
+/* Remove previous bullet styling */
+.bullet {
+  display: none;
+}
+
+.bullet::after {
+  display: none;
+}
+
+.problem .outro,
+.solution .outro {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0;
+  margin-top: 0.5rem;
+}
+
+/* Illustration */
+.illustration {
+  position: absolute;
+  right: -5%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40%;
+  max-width: 500px;
+}
+
+.solution-img {
+  width: 100%;
+  height: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .illustration {
+    position: static;
+    transform: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto 0;
+    grid-column: span 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .split-title {
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .problem-solution {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .problem, .solution {
+    padding: 1.5rem;
+  }
+}
+
+.gold-text {
+  color: var(--accent-gold-light);
 }
