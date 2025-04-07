@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     strings: ['Tailored.', 'Automatic.', 'Accessible.', 'Taxedo.'],
     typeSpeed: 100,
     backSpeed: 50,
-    loop: true
+    loop: false
   });
 
   // Smooth scrolling for navigation links
